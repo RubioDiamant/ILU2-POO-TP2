@@ -10,12 +10,6 @@ public class ControlVerifierIdentite {
 	}
 
 	public boolean verifierIdentite(String nomVendeur) {
-		String[] villageois = village.donnerVillageois();
-		for(int i = 0; i < villageois.length; i++) {
-			if(villageois[i].equals(nomVendeur)){
-				return true;
-			}
-		}
-		return false;
+		return village.trouverHabitant(nomVendeur) != null;
 	}
 }
