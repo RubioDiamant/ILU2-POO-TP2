@@ -9,5 +9,9 @@ public class ControlAfficherMarche {
 		this.village = village;
 	}
 
-	//TODO a completer
+	public String[] donnerInfosMarche() {
+		String[] info;
+		info = village.donnerEtatMarche();
+		return info;
+	}
 }
