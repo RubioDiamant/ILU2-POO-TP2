@@ -9,7 +9,6 @@ import controleur.ControlPrendreEtal;
 import controleur.ControlTrouverEtalVendeur;
 import controleur.ControlVerifierIdentite;
 import personnages.Chef;
-import personnages.Gaulois;
 import villagegaulois.Etal;
 import villagegaulois.Village;
 
@@ -21,8 +20,6 @@ public class TestControleursDesCas {
 		Village village = new Village("le village des irréductibles", 10, 5);
 		Chef abraracourcix = new Chef("Abraracourcix", 10, village);
 		village.setChef(abraracourcix);
-		Gaulois asterix = new Gaulois("Asterix", 6);
-		Gaulois obelix = new Gaulois("Obelix", 12);
 
 		ControlAfficherVillage controlAfficherVillage = new ControlAfficherVillage(
 				village);
@@ -179,6 +176,10 @@ public class TestControleursDesCas {
 		int nbProduitAcheter = controlAcheterProduit.acheterProduit("Obelix",
 				2);
 		System.out.println("Achat de " + nbProduitAcheter + " menhirs sur 2");
+		nbProduitAcheter = controlAcheterProduit.acheterProduit("Obelix", 3);
+		System.out.println("Achat de " + nbProduitAcheter + " menhirs sur 3");
+		nbProduitAcheter = controlAcheterProduit.acheterProduit("Obelix", 3);
+		System.out.println("Achat de " + nbProduitAcheter + " menhirs sur 3");
 		nbProduitAcheter = controlAcheterProduit.acheterProduit("Obelix", 3);
 		System.out.println("Achat de " + nbProduitAcheter + " menhirs sur 3");
 		

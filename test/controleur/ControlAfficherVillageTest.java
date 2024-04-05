@@ -34,20 +34,24 @@ class ControlAfficherVillageTest {
 		ControlAfficherVillage controlAfficherVillage = new ControlAfficherVillage(village);
 		controlEmmenagerVillage.ajouterGaulois("Bonemine", 7);
 		controlEmmenagerVillage.ajouterDruide("Panopano", 3,3,5);
-		String[] tab = {"Bonemine","Panopano"};
-		assertEquals(tab, )
+		String[] tab = {"Abraracourcix","Bonemine","le druide Panopano"};
+		assertEquals(tab.length, controlAfficherVillage.donnerNomsVillageois().length);
+		for(int i = 0; i< tab.length; i++) {
+			assertEquals(tab[i], controlAfficherVillage.donnerNomsVillageois()[i]);
+		}
+		
 	}
 
 	@Test
 	void testDonnerNomVillage() {
 		ControlAfficherVillage controlAfficherVillage = new ControlAfficherVillage(village);
-		assertEquals("le village des irréductibles", village.getNom());
+		assertEquals("le village des irréductibles", controlAfficherVillage.donnerNomVillage());
 	}
 
 	@Test
 	void testDonnerNbEtals() {
 		ControlAfficherVillage controlAfficherVillage = new ControlAfficherVillage(village);
-		assertEquals(5, village.donnerNbEtal());
+		assertEquals(5, controlAfficherVillage.donnerNbEtals());
 	}
 
 }
