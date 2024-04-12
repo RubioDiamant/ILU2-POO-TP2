@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import personnages.Chef;
 import villagegaulois.Village;
 
-//Probleme ici !!!
 
 class ControlPrendreEtalTest {
 
@@ -21,7 +20,7 @@ class ControlPrendreEtalTest {
 
 	@BeforeEach
 	public void initialiserSituation() {
-		village = new Village("Village gaulois", 10, 3);
+		village = new Village("Village gaulois", 10, 2);
 		chef = new Chef("Abrara", 10, village);
 		village.setChef(chef);
 		controlVerifierIdentite = new ControlVerifierIdentite(village);
@@ -32,8 +31,6 @@ class ControlPrendreEtalTest {
 		controlEmmenager.ajouterGaulois("Asterix", 10);
 		controlEmmenager.ajouterGaulois("Obelix", 15);
 		controlEmmenager.ajouterGaulois("Bonemine", 5);
-		
-
 	}
 	
 	@Test
@@ -46,14 +43,16 @@ class ControlPrendreEtalTest {
 	@Test
 	void testPrendreEtal() {
 		ControlLibererEtal controlLibererEtal = new ControlLibererEtal(controlTrouverEtalVendeur);
-		ControlAfficherMarche controlAfficherMarche = new ControlAfficherMarche(village);
 		int etalBonemine = controlPrendreEtal.prendreEtal("Bonemine", "fleurs", 20);
-		assertNotEquals(-1, etalBonemine);
+		assertNotEquals(0, etalBonemine);
 		int etalObelix = controlPrendreEtal.prendreEtal("Obelix", "menhirs", 5);
-		assertNotEquals(-1, etalObelix);
+		assertNotEquals(0, etalObelix);
 		int etalAsterix = controlPrendreEtal.prendreEtal("Asterix", "menhirs", 5);
-		assertEquals(-1, etalAsterix);
-		controlLibererEtal.libererEtal("Asterix");
+		assertEquals(0, etalAsterix);
+		controlLibererEtal.libererEtal("Obelix");
+		etalAsterix = controlPrendreEtal.prendreEtal("Asterix", "menhirs", 5);
+		assertNotEquals(0, etalAsterix);
+		
 		
 	}
 	
@@ -62,6 +61,7 @@ class ControlPrendreEtalTest {
 		ControlPrendreEtal controlPrendreEtal = new ControlPrendreEtal(controlVerifierIdentite, village);
 		assertTrue(controlPrendreEtal.resteEtals());
 		controlPrendreEtal.prendreEtal("Asterix", "pommes", 15);
+		controlPrendreEtal.prendreEtal("Bonemine", "fleurs", 20);
 		assertFalse(controlPrendreEtal.resteEtals());
 	}
 
