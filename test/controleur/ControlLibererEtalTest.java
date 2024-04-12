@@ -41,17 +41,17 @@ class ControlLibererEtalTest {
 	void testIsVendeur() {
 		ControlLibererEtal controlLibererEtal = new ControlLibererEtal(controlTrouverEtalVendeur);
 		controlPrendreEtal.prendreEtal("Obelix", "menhirs", 5);
-		assertEquals(true, controlLibererEtal.isVendeur("Obelix"));
-		assertEquals(false, controlLibererEtal.isVendeur("Asterix"));
+		assertTrue(controlLibererEtal.isVendeur("Obelix"));
+		assertFalse(controlLibererEtal.isVendeur("Asterix"));
 		controlPrendreEtal.prendreEtal("Asterix", "menhirs", 5);
-		assertEquals(true, controlLibererEtal.isVendeur("Asterix"));
+		assertTrue(controlLibererEtal.isVendeur("Asterix"));
 	}
 
 	@Test
 	void testLibererEtal() {
 		ControlLibererEtal controlLibererEtal = new ControlLibererEtal(controlTrouverEtalVendeur);
 		controlPrendreEtal.prendreEtal("Obelix", "menhirs", 5);
-		assertEquals(null, controlLibererEtal.libererEtal("Asterix"));
+		assertNull(controlLibererEtal.libererEtal("Asterix"));
 		String[] etalObelix = {"true","Obelix","menhirs","5","0"};
 		String[] secondEtalObelix = controlLibererEtal.libererEtal("Obelix");
 		assertEquals(etalObelix.length, secondEtalObelix.length);

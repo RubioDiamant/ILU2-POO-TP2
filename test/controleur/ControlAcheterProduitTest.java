@@ -77,6 +77,7 @@ class ControlAcheterProduitTest {
 		controlPrendreEtal.prendreEtal("Asterix", "menhirs", 3);
 		controlPrendreEtal.prendreEtal("Bonemine", "fleurs", 10);
 		assertEquals(3,controlAcheterProduit.acheterProduit("Obelix", 3));
+		//impossible acheter 4 car 2 restant :
 		assertEquals(2,controlAcheterProduit.acheterProduit("Obelix", 4));
 		assertEquals(0,controlAcheterProduit.acheterProduit("Obelix", 1));
 		assertEquals(3,controlAcheterProduit.acheterProduit("Asterix", 5));
